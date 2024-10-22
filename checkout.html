@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <button id="checkoutButton">Checkout</button>
+    <button id="cancelButton">Cancel</button>
+    <button id="exitButton">Exit</button>
+
+    <script>
+        // Update the path to the invoice page
+        document.getElementById('checkoutButton').addEventListener('click', function() {
+            console.log('Proceeding to invoice...');
+            window.location.href = 'file:///C:/Users/OTRE%20MILLER/Documents/New%20folder/codes/invoice.html'; // Absolute path to invoice page
+        });
+
+        // Assuming home.html is in the same directory as this file
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            console.log('Checkout canceled.');
+            window.location.href = 'home.html'; // Path to the home page
+        });
+
+        document.getElementById('exitButton').addEventListener('click', function() {
+            console.log('Exiting checkout.');
+            window.location.href = 'home.html'; // Path to the exit page
+        });
+    </script>
+</body>
+</html>

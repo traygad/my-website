@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Display</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Unique font */
+            background-color: #f4f4f4; /* Light background for contrast */
+            margin: 0;
+            padding: 20px;
+        }
+        .nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .product-container {
+            display: grid; /* Use grid layout for responsiveness */
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive columns */
+            gap: 20px; /* Space between items */
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px; /* Unique rounded corners */
+            padding: 20px; /* Increased padding for better spacing */
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: transform 0.3s; /* Smooth scaling effect */
+        }
+        .product:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff; /* Primary color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s; /* Smooth transition effect */
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Login</a> | 
+        <a href="invoice.html">Invoice</a>
+    </div>
+    <div class="product">
+    <input type="checkbox" id="product1" value="Calcium">
+    <label for="product1">
+        <h2>Calcium</h2>
+        <img src="images/calcium.jpg" alt="Calcium Product Image" class="product-image">
+        <p>Price: JMD 1,500</p>
+    </label>
+    </div>
+       <div class="product">
+        <input type="checkbox" id="product2" value="Iron">
+        <label for="product2">
+            <h2>Iron</h2>
+            <img src="images/iron.jpg" alt="Iron Product Image" width="50" height="50" class="product-image">
+            <p>Price: JMD 2,000</p>
+        </label>
+    </div>
+    <div class="product">
+        <input type="checkbox" id="product3" value="Zinc">
+        <label for="product3">
+            <h2>Zinc</h2>
+            <img src="images/zinc.jpg" alt="Zinc Product Image" width="37" height="25" class="product-image">
+            <p>Price: JMD 1,200</p>
+        </label>
+    </div>
+    <div class="product">
+        <input type="checkbox" id="product4" value="Multivitamin">
+        <label for="product4">
+            <h2>Multivitamin</h2>
+            <img src="images/multivitamin.jpg" alt="Multivitamin Product Image" width="37" height="25" class="product-image">
+            <p>Price: JMD 2,500</p>
+        </label>
+    </div>
+    <div class="product">
+        <input type="checkbox" id="product5" value="Probiotics">
+        <label for="product5">
+            <h2>Probiotics</h2>
+            <img src="images/probiotics.jpg" alt="Probiotics Product Image" width="37" height="25" class="product-image">
+            <p>Price: JMD 2,200</p>
+        </label>
+    </div>
+    <div class="product">
+        <input type="checkbox" id="product6" value="Vitamin C">
+        <label for="product6">
+            <h2>Vitamin C</h2>
+            <img src="images/vitamin_c.jpg" alt="Vitamin C Product Image" width="37" height="25" class="product-image">
+            <p>Price: JMD 1,800</p>
+        </label>
+    </div>
+    <div class="product">
+        <input type="checkbox" id="product7" value="Vitamin D">
+        <label for="product7">
+            <h2>Vitamin D</h2>
+            <img src="images/vitamin_d.jpg" alt="Vitamin D Product Image" width="37" height="25" class="product-image">
+            <p>Price: JMD 1,700</p>
+        </label>
+    </div>
+    <div class="product">
+        <input type="checkbox" id="product8" value="Vitamin B12">
+        <label for="product8">
+            <h2>Vitamin B12</h2>
+            <img src="images/vitamin_b12.jpg" alt="Vitamin B12 Product Image" width="37" height="25" class="product-image">
+            <p>Price: JMD 1,800</p>
+        </label>
+    </div>     
+       
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="checkOut()">CheckOut</button>
+        <button onclick="cancelSelection()">Cancel</button>
+        <button onclick="exit()">Exit</button>
+    </div>
+
+    <script>
+        // Global arrays to store product data
+        const products = [
+            { name: "Calcium", price: 1500, quantity: 50 },
+            { name: "Iron", price: 2000, quantity: 50 },
+            { name: "Vitamin B12", price: 1800, quantity: 50 }
+        ];
+
+        function checkOut() {
+            const selectedProducts = [];
+            const checkboxes = document.querySelectorAll

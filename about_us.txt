@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Optional: Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #about-us {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<section id="about-us">
+    <h2>About Us</h2>
+    <p>Full Name: Otre Khemani Miller</p>
+    <p>ID Number: 2304213</p>
+    <p>Email: <a href="mailto:otremiller15@gmail.com">otremiller15@gmail.com</a></p>
+    <p>Company Email: <a href="mailto:2304213@utech.edu.jm">2304213@utech.edu.jm</a></p>
+    <p>Module Code: CIT2011</p>
+    <p>Assignment Name: Individual Assignment 2</p>
+    <p>Class Day/Time: Friday at 5pm</p>
+</section>
+
+</body>
+</html>

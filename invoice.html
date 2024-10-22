@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .invoice-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <h1>Invoice</h1>
+        <div id="invoice-details"></div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="cancel()">Cancel</button>
+            <button onclick="exit()">Exit</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to display invoice details
+        function displayInvoice() {
+            const invoiceDetails = JSON.parse(localStorage.getItem('invoiceData'));
+            const invoiceDiv = document.getElementById('invoice-details');
+
+            if (invoiceDetails) {
+                let html = `<h2>Products Purchased:</h2><ul>`;
+                invoiceDetails.products.forEach(product => {
+                    html += `<li>${product.name} - JMD ${product.price} (Qty: ${product.quantity})</li>`;
+                });
+                html += `</ul>`;
+                html += `<p>Subtotal: JMD ${invoiceDetails.subtotal}</p>`;
+                html += `<p>Tax (10%): JMD ${invoiceDetails.tax}</p>`;
+                html += `<p>Discount: JMD ${invoiceDetails.discount}</p>`;
+                html += `<h3>Total: JMD ${invoiceDetails.total}</h3>`;
+                invoiceDiv.innerHTML = html;
+            } else {
+                invoiceDiv.innerHTML = `<p>No invoice data found.</p>`;
+            }
+        }
+
+        function cancel() {
+            // Logic to cancel the transaction and redirect
+            window.location.href = "products.html"; // Redirect to product page
+        }
+
+        function exit() {
+            // Logic to exit and redirect to login page
+            window.location.href = "index.html"; // Redirect to login page
+        }
+
+        // Call the function to display the invoice when the page loads
+        window.onload = displayInvoice;
+    </script>
+</body>
+</html>
